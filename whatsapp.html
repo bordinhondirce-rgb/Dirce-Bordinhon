@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecionando... | Dirce Bordinhon Advocacia</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!--
+  ======================================================================
+  COMO ATIVAR O RASTREAMENTO DE CONVERSÃO (passo a passo):
+
+  1. No Google Ads, vá em: Ferramentas e Configurações > Conversões
+  2. Clique em "+ Nova ação de conversão" > "Site"
+  3. Escolha "Cliques em número de telefone" ou crie como "Enviar formulário
+     de intenção de contato" (categoria "Contato")
+  4. O Google vai te dar um código com um ID parecido com "AW-123456789"
+     e um "Label" parecido com "AbC-D_efG1H2i3J"
+  5. Substitua ABAIXO, nas duas linhas marcadas com [SUBSTITUA AQUI],
+     pelos valores que o Google te der
+  6. Suba esse arquivo (whatsapp.html) pro mesmo lugar do index.html no GitHub
+  7. No Google Ads, use como "URL final" do anúncio:
+     https://seudominio.com/whatsapp.html
+     (troque pelo link real do seu GitHub Pages)
+
+  Sem esse código preenchido, a página ainda funciona normalmente
+  (redireciona pro WhatsApp), só não vai registrar a conversão no Ads.
+  ======================================================================
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-SUBSTITUA_AQUI"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-SUBSTITUA_AQUI');
+
+  function enviarConversaoERedirecionar(url) {
+    gtag('event', 'conversion', {
+        'send_to': 'AW-SUBSTITUA_AQUI/SUBSTITUA_LABEL_AQUI',
+        'event_callback': function () { window.location.href = url; }
+    });
+    // Garante o redirecionamento mesmo se o gtag falhar/demorar
+    setTimeout(function(){ window.location.href = url; }, 800);
+  }
+</script>
+
+<style>
+  :root{
+    --bg:#0a0a0b; --gold:#c9a355; --gold-bright:#e3c17e; --cream:#f3ede0; --cream-dim:#c9c2b0;
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'EB Garamond', Georgia, serif;
+    height:100vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:24px;
+  }
+  .box{max-width:360px;}
+  .spinner{
+    width:44px; height:44px; margin:0 auto 26px;
+    border:2px solid rgba(201,163,85,0.25); border-top-color:var(--gold);
+    border-radius:50%; animation:spin 0.9s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  h1{font-size:22px; font-weight:600; color:var(--cream); margin-bottom:10px;}
+  p{color:var(--cream-dim); font-size:16px; line-height:1.5;}
+  a.manual{
+    display:inline-block; margin-top:22px; color:var(--gold-bright);
+    font-size:14px; border-bottom:1px solid var(--gold-bright); padding-bottom:2px;
+  }
+</style>
+</head>
+<body onload="enviarConversaoERedirecionar('https://wa.me/5535910189447?text=Ol%C3%A1%2C%20vim%20pelo%20an%C3%BAncio%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.')">
+  <div class="box">
+    <div class="spinner"></div>
+    <h1>Redirecionando para o WhatsApp</h1>
+    <p>Aguarde um instante, você será encaminhado automaticamente.</p>
+    <a class="manual" href="https://wa.me/5535910189447?text=Ol%C3%A1%2C%20vim%20pelo%20an%C3%BAncio%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.">Clique aqui se não for redirecionado</a>
+  </div>
+</body>
+</html>
